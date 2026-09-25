@@ -1,13 +1,13 @@
 ---
-name: sec-red-flags
-description: Review English-language US SEC filings into a source-first, dated evidence ledger for small and micro-cap diligence risks; use for verification work, not valuation, screening, or investment recommendations.
+name: sec-diligence
+description: Review English-language US SEC filings into a source-first, dated evidence ledger for small and micro-cap due diligence; use to verify disclosures and open questions, not for valuation, screening, or investment recommendations.
 metadata:
   short-description: Cited SEC small-cap diligence ledger
 ---
 
-# SEC Red Flags
+# SEC Diligence
 
-Build a reproducible diligence-risk ledger from US SEC filings. The outcome is a set of dated, source-linked observations that tells the requester what is disclosed, what can reasonably be inferred, and what remains unknown. It is not a stock pick, fraud label, valuation, screener, market-data workflow, or trading instruction.
+Build a reproducible diligence ledger from US SEC filings. The outcome is a set of dated, source-linked observations that tells the requester what is disclosed, what can reasonably be inferred, and what remains unknown. It is not a stock pick, fraud label, valuation, screener, market-data workflow, or trading instruction.
 
 ## Start with identity and scope
 
@@ -15,11 +15,11 @@ Build a reproducible diligence-risk ledger from US SEC filings. The outcome is a
 2. State the reviewed filing set and cutoff/as-of date. Use English-language US SEC filings only. For a historical cutoff, include only evidence with an SEC accepted timestamp on or before that cutoff. Do not silently use later amendments, restatements, or subsequent events; list them only as clearly labeled post-cutoff context when the requester asks for it.
 3. Retrieve the source document before forming material findings. If a needed filing or quoted passage cannot be verified, record it as unknown; do not fill the gap from memory or a secondary summary.
 
-Read [source hierarchy](references/source-hierarchy.md) before collecting evidence. Read [red-flag taxonomy](references/red-flag-taxonomy.md) when selecting review areas. Read [output contract](references/output-contract.md) before drafting the final ledger.
+Read [source hierarchy](references/source-hierarchy.md) before collecting evidence. Read [diligence review areas](references/diligence-review-areas.md) when selecting review areas. Read [output contract](references/output-contract.md) before drafting the final ledger.
 
 ## Review method
 
-Prioritize the latest annual report, subsequent quarterly reports, current reports, registration statements, proxy materials, and amendments that affect the cutoff. Search for both direct disclosures and changes across periods. For each material flag:
+Prioritize the latest annual report, subsequent quarterly reports, current reports, registration statements, proxy materials, and amendments that affect the cutoff. Search for both direct disclosures and changes across periods. For each material finding:
 
 - quote or tightly paraphrase the relevant disclosure;
 - cite the filing type, filed date, section/page or item, stable URL/accession, and the ledger as-of date;
@@ -35,4 +35,4 @@ Stop the substantive review and ask for the missing item when identity or filing
 
 ## Deliverable
 
-Return the compact ledger in the exact shape in [output contract](references/output-contract.md). Put the most decision-relevant disclosed risks first, followed by open questions and source coverage. A short, well-cited ledger is preferable to exhaustive unsourced commentary.
+Return the compact ledger in the exact shape in [output contract](references/output-contract.md). Put the most decision-relevant findings first, followed by open questions and source coverage. A short, well-cited ledger is preferable to exhaustive unsourced commentary.

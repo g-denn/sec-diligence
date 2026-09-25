@@ -1,8 +1,8 @@
-# SEC Red Flags
+# SEC Diligence
 
-[![skills.sh](https://skills.sh/b/g-denn/sec-red-flags)](https://skills.sh/g-denn/sec-red-flags)
+[![skills.sh](https://skills.sh/b/g-denn/sec-diligence)](https://skills.sh/g-denn/sec-diligence)
 
-`sec-red-flags` is an Agent Skill for turning US SEC filings into a compact, cited diligence-risk ledger. It is designed for small and micro-cap research where the real question is often not "what is the price?" but "what must be proven before this deserves more work?"
+`sec-diligence` is an Agent Skill for turning US SEC filings into a compact, cited diligence ledger. It is designed for small and micro-cap research where the useful first question is often not "what is the price?" but "what can the primary evidence establish?"
 
 It does not rank securities, estimate value, screen companies, use market-price data, or give investment or trading recommendations.
 
@@ -11,13 +11,13 @@ It does not rank securities, estimate value, screen companies, use market-price 
 Install with the public Agent Skills CLI:
 
 ```bash
-npx skills add g-denn/sec-red-flags --skill sec-red-flags
+npx skills add g-denn/sec-diligence --skill sec-diligence
 ```
 
-Or copy [`skills/sec-red-flags`](skills/sec-red-flags) into a compatible Agent Skills directory. Then invoke `$sec-red-flags` with an unambiguous US issuer name plus CIK, or a filing URL/accession number.
+Or copy [`skills/sec-diligence`](skills/sec-diligence) into a compatible Agent Skills directory. Then invoke `$sec-diligence` with an unambiguous US issuer name plus CIK, or a filing URL/accession number.
 
 ```text
-Use $sec-red-flags to review Example Microcap Inc. (CIK 0000123456).
+Use $sec-diligence to review Example Microcap Inc. (CIK 0000123456).
 Use only the latest 10-K and subsequent 10-Qs. Produce a cited evidence ledger.
 ```
 
@@ -27,10 +27,10 @@ No API key is required. The workflow uses primary public filing sources; an agen
 
 - Fails closed on an ambiguous issuer, ticker, CIK, reporting period, or missing source proof.
 - Separates filed facts, analyst inferences, and unknowns instead of converting uncertainty into a confidence score.
-- Makes every material flag traceable to a filing section/page or an exact SEC filing URL, with an as-of date.
+- Makes every material finding traceable to a filing section/page or an exact SEC filing URL, with an as-of date.
 - Covers the recurring small-cap failure modes: going concern and runway, dilution, financing terms, related parties, customer concentration, controls, contingencies, and regulatory disclosures.
 
-Read the [skill](skills/sec-red-flags/SKILL.md), [source hierarchy](skills/sec-red-flags/references/source-hierarchy.md), [taxonomy](skills/sec-red-flags/references/red-flag-taxonomy.md), and [output contract](skills/sec-red-flags/references/output-contract.md).
+Read the [skill](skills/sec-diligence/SKILL.md), [source hierarchy](skills/sec-diligence/references/source-hierarchy.md), [review areas](skills/sec-diligence/references/diligence-review-areas.md), and [output contract](skills/sec-diligence/references/output-contract.md).
 
 ## Example
 

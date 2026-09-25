@@ -1,6 +1,0 @@
-interface:
-  display_name: "SEC Red Flags"
-  short_description: "Cited SEC small-cap diligence ledger"
-  default_prompt: "Use $sec-red-flags to review the supplied US issuer CIK and latest filings into a cited evidence ledger."
-policy:
-  allow_implicit_invocation: true

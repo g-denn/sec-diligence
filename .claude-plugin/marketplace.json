@@ -1,19 +1,19 @@
 {
-  "name": "sec-red-flags-marketplace",
+  "name": "sec-diligence-marketplace",
   "owner": {
     "name": "G-Den Ngiam"
   },
   "metadata": {
-    "description": "Source-first SEC filing diligence skill for cited risk ledgers"
+    "description": "Source-first SEC filing skill for cited diligence ledgers"
   },
   "plugins": [
     {
-      "name": "sec-red-flags",
-      "description": "Review US SEC filings into a cited diligence-risk ledger without recommendations.",
+      "name": "sec-diligence",
+      "description": "Review US SEC filings into a cited diligence ledger without recommendations.",
       "source": "./",
       "strict": false,
       "skills": [
-        "./skills/sec-red-flags"
+        "./skills/sec-diligence"
       ]
     }
   ]

@@ -1,4 +1,4 @@
-# Red-flag taxonomy
+# Diligence review areas
 
 Use this as a review checklist, not as a scoring model. Only include an item in the ledger when there is dated evidence or a material, clearly bounded unknown.
 

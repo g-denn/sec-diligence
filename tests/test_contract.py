@@ -42,7 +42,7 @@ class ContractTests(unittest.TestCase):
     def test_clean_negative_control(self) -> None:
         case = self.case("clean-negative-control")
         self.assertEqual(case["expected_categories"], [])
-        self.assertIn("No material flag established", case["output"])
+        self.assertIn("No material concern established", case["output"])
         self.assertIn("full filings are needed", case["output"])
 
     def test_validator_rejects_unsafe_conclusions(self) -> None:

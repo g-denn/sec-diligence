@@ -4,7 +4,7 @@ Contributions should make source-first SEC diligence more precise without expand
 
 Before opening a pull request:
 
-1. Keep canonical workflow instructions in `skills/sec-red-flags/SKILL.md`; place conditional detail in its linked references.
+1. Keep canonical workflow instructions in `skills/sec-diligence/SKILL.md`; place conditional detail in its linked references.
 2. Use synthetic fixtures only. Do not add unverified claims about real issuers.
 3. Run the commands in the README Development section.
 4. Explain which source, uncertainty, or citation rule your change improves.

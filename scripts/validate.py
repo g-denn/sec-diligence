@@ -8,13 +8,13 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL = ROOT / "skills" / "sec-red-flags"
+SKILL = ROOT / "skills" / "sec-diligence"
 REQUIRED_FILES = (
     "README.md", "LICENSE", "SECURITY.md", "CONTRIBUTING.md", "PRODUCT_VISION.md", "TODO.md",
-    "skills/sec-red-flags/SKILL.md", "skills/sec-red-flags/agents/openai.yaml",
-    "skills/sec-red-flags/references/source-hierarchy.md",
-    "skills/sec-red-flags/references/red-flag-taxonomy.md",
-    "skills/sec-red-flags/references/output-contract.md", "examples/sample-input.md",
+    "skills/sec-diligence/SKILL.md", "skills/sec-diligence/agents/openai.yaml",
+    "skills/sec-diligence/references/source-hierarchy.md",
+    "skills/sec-diligence/references/diligence-review-areas.md",
+    "skills/sec-diligence/references/output-contract.md", "examples/sample-input.md",
     "examples/sample-output.md", ".claude-plugin/marketplace.json", ".github/workflows/validate.yml",
     "tests/fixtures/cases.json",
 )
@@ -42,8 +42,8 @@ def check_frontmatter(errors: list[str]) -> None:
         fail(errors, "SKILL.md has no YAML frontmatter")
         return
     frontmatter = match.group(1)
-    if not re.search(r"^name:\s*sec-red-flags\s*$", frontmatter, re.MULTILINE):
-        fail(errors, "SKILL.md frontmatter name must be sec-red-flags")
+    if not re.search(r"^name:\s*sec-diligence\s*$", frontmatter, re.MULTILINE):
+        fail(errors, "SKILL.md frontmatter name must be sec-diligence")
     description = re.search(r"^description:\s*(.+)$", frontmatter, re.MULTILINE)
     if not description or len(description.group(1).strip()) < 40:
         fail(errors, "SKILL.md needs a discriminating description")
@@ -88,7 +88,7 @@ def main() -> int:
         fail(errors, f"invalid marketplace JSON: {exc}")
         marketplace = {}
     plugins = marketplace.get("plugins", []) if isinstance(marketplace, dict) else []
-    expected_skill = "./skills/sec-red-flags"
+    expected_skill = "./skills/sec-diligence"
     if not any(
         isinstance(plugin, dict)
         and plugin.get("source") == "./"
@@ -96,7 +96,7 @@ def main() -> int:
         and expected_skill in plugin.get("skills", [])
         for plugin in plugins
     ):
-        fail(errors, "marketplace must explicitly map ./skills/sec-red-flags from the repository root")
+        fail(errors, "marketplace must explicitly map ./skills/sec-diligence from the repository root")
     check_output(errors, "examples/sample-output.md", (ROOT / "examples/sample-output.md").read_text(encoding="utf-8"))
     try:
         cases = json.loads((ROOT / "tests/fixtures/cases.json").read_text(encoding="utf-8"))
