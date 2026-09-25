@@ -1,0 +1,16 @@
+{
+  "name": "sec-red-flags-marketplace",
+  "owner": {
+    "name": "G-Den Ngiam"
+  },
+  "metadata": {
+    "description": "Source-first SEC filing diligence skill for cited risk ledgers"
+  },
+  "plugins": [
+    {
+      "name": "sec-red-flags",
+      "description": "Audit US SEC filings into a cited diligence-risk ledger without recommendations.",
+      "source": "./skills/sec-red-flags"
+    }
+  ]
+}

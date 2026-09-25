@@ -1,0 +1,46 @@
+[
+  {
+    "id": "going-concern-runway",
+    "synthetic": true,
+    "prompt": "Review Synthetic Alder Labs (CIK 0001000001), cutoff 2026-05-15.",
+    "evidence": [
+      "Synthetic 10-K Item 1A says substantial doubt exists about continuing as a going concern.",
+      "Synthetic 10-Q reports $1.20m cash and $0.90m operating cash use for three months."
+    ],
+    "expected_categories": ["liquidity", "going concern"],
+    "output": "# SEC filing evidence ledger — Synthetic Alder Labs (CIK 0001000001)\n\n**Scope:** Synthetic 10-K and 10-Q\n**As of:** 2026-05-15\n**Identity proof:** Synthetic SEC accession 0001000001-26-000001\n\n## Material disclosed risks\n\n### Going-concern disclosure\n- **Fact:** Synthetic 10-K Item 1A states substantial doubt exists.\n  - **Citation:** Synthetic Form 10-K, filed 2026-03-28, Item 1A, accession 0001000001-26-000001.\n- **Inference:** The filing identifies a continuity risk.\n- **Calculation:** $1.20m / ($0.90m / 3 months) = 4.0 months.\n- **Unknown:** Post-quarter financing is not supplied; later filings could resolve it.\n\n## Open questions and coverage gaps\n- Review later synthetic filings for financing.\n\n## Sources reviewed\n- Synthetic Form 10-K, filed 2026-03-28, accession 0001000001-26-000001."
+  },
+  {
+    "id": "dilution",
+    "synthetic": true,
+    "prompt": "Review Synthetic Beacon Bio (CIK 0001000002), cutoff 2026-06-30.",
+    "evidence": [
+      "Synthetic 10-Q reports 12m common shares outstanding and 8m warrants exercisable at $0.50.",
+      "Synthetic 8-K describes a $5m at-the-market program."
+    ],
+    "expected_categories": ["capital structure", "dilution"],
+    "output": "# SEC filing evidence ledger — Synthetic Beacon Bio (CIK 0001000002)\n\n**Scope:** Synthetic 10-Q and 8-K\n**As of:** 2026-06-30\n**Identity proof:** Synthetic SEC accession 0001000002-26-000003\n\n## Material disclosed risks\n\n### Potential additional common shares\n- **Fact:** Synthetic filings disclose 8m exercisable warrants and a $5m at-the-market program.\n  - **Citation:** Synthetic Form 10-Q, filed 2026-05-10, Note 9, accession 0001000002-26-000003.\n- **Inference:** The filings describe instruments that could increase common shares; timing is not established.\n- **Calculation:** 8m potential warrant shares / 12m reported common shares = 66.7%; source inputs above.\n- **Unknown:** Exercise conditions and shares issued under the program are not supplied; later filings could resolve them.\n\n## Open questions and coverage gaps\n- Confirm subsequent issuance disclosures.\n\n## Sources reviewed\n- Synthetic Form 10-Q, filed 2026-05-10, accession 0001000002-26-000003."
+  },
+  {
+    "id": "related-party-control-weakness",
+    "synthetic": true,
+    "prompt": "Review Synthetic Cobalt Systems (CIK 0001000003), cutoff 2026-04-01.",
+    "evidence": [
+      "Synthetic 10-K Note 14 discloses a loan from the chief executive's family trust.",
+      "Synthetic 10-K Item 9A reports a material weakness in revenue recognition controls."
+    ],
+    "expected_categories": ["related party", "control weakness"],
+    "output": "# SEC filing evidence ledger — Synthetic Cobalt Systems (CIK 0001000003)\n\n**Scope:** Synthetic FY2025 10-K\n**As of:** 2026-04-01\n**Identity proof:** Synthetic SEC accession 0001000003-26-000001\n\n## Material disclosed risks\n\n### Related-party financing and reported control weakness\n- **Fact:** Synthetic Note 14 discloses a loan from the chief executive's family trust; Item 9A reports a material weakness in revenue-recognition controls.\n  - **Citation:** Synthetic Form 10-K, filed 2026-03-30, Note 14 and Item 9A, accession 0001000003-26-000001.\n- **Inference:** The disclosures warrant verification of terms and remediation progress; they do not establish misconduct.\n- **Calculation:** Not applicable.\n- **Unknown:** Loan terms and remediation timing are not supplied; complete notes and later filings could resolve them.\n\n## Open questions and coverage gaps\n- Review related-party terms and remediation updates.\n\n## Sources reviewed\n- Synthetic Form 10-K, filed 2026-03-30, accession 0001000003-26-000001."
+  },
+  {
+    "id": "clean-negative-control",
+    "synthetic": true,
+    "prompt": "Review Synthetic Delta Tools (CIK 0001000004), cutoff 2026-05-01.",
+    "evidence": [
+      "Synthetic 10-K states management concluded disclosure controls were effective.",
+      "The supplied synthetic excerpts contain no going-concern language, financing note, or related-party note."
+    ],
+    "expected_categories": [],
+    "output": "# SEC filing evidence ledger — Synthetic Delta Tools (CIK 0001000004)\n\n**Scope:** Limited synthetic FY2025 10-K excerpts\n**As of:** 2026-05-01\n**Identity proof:** Synthetic SEC accession 0001000004-26-000001\n\n## Material disclosed risks\n\n### No material flag established from supplied excerpts\n- **Fact:** The supplied synthetic excerpt states management concluded disclosure controls were effective.\n  - **Citation:** Synthetic Form 10-K, filed 2026-03-15, Item 9A, accession 0001000004-26-000001.\n- **Inference:** None.\n- **Calculation:** Not applicable.\n- **Unknown:** The excerpts are incomplete; full filings are needed to assess other taxonomy areas.\n\n## Open questions and coverage gaps\n- Obtain complete synthetic annual report and subsequent filings.\n\n## Sources reviewed\n- Synthetic Form 10-K excerpt, filed 2026-03-15, accession 0001000004-26-000001."
+  }
+]
