@@ -6,6 +6,8 @@ import sys
 import unittest
 from pathlib import Path
 
+from scripts import validate
+
 
 ROOT = Path(__file__).resolve().parents[1]
 CASES = json.loads((ROOT / "tests" / "fixtures" / "cases.json").read_text(encoding="utf-8"))
@@ -28,7 +30,8 @@ class ContractTests(unittest.TestCase):
     def test_dilution_case(self) -> None:
         case = self.case("dilution")
         self.assertIn("dilution", case["expected_categories"])
-        self.assertIn("66.7%", case["output"])
+        self.assertIn("overhang/current shares", case["output"])
+        self.assertIn("40.0%", case["output"])
         self.assertIn("**Citation:**", case["output"])
 
     def test_related_party_control_weakness_case(self) -> None:
@@ -41,6 +44,21 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(case["expected_categories"], [])
         self.assertIn("No material flag established", case["output"])
         self.assertIn("full filings are needed", case["output"])
+
+    def test_validator_rejects_unsafe_conclusions(self) -> None:
+        base = self.case("clean-negative-control")["output"]
+        for unsafe in ("Buy the stock.", "This is a scam.", "Composite risk score: 9/10."):
+            errors: list[str] = []
+            validate.check_output(errors, "mutation", base + "\n" + unsafe)
+            self.assertTrue(errors, unsafe)
+
+    def test_validator_rejects_missing_as_of_date(self) -> None:
+        output = self.case("clean-negative-control")["output"].replace(
+            "**As of:** 2026-05-01", "**As of:** unknown"
+        )
+        errors: list[str] = []
+        validate.check_output(errors, "mutation", output)
+        self.assertTrue(errors)
 
 
 if __name__ == "__main__":

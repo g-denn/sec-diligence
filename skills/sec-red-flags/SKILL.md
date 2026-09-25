@@ -1,6 +1,6 @@
 ---
 name: sec-red-flags
-description: Audit English-language US SEC filings into a source-first, dated evidence ledger for small and micro-cap diligence risks; use for verification work, not valuation, screening, or investment recommendations.
+description: Review English-language US SEC filings into a source-first, dated evidence ledger for small and micro-cap diligence risks; use for verification work, not valuation, screening, or investment recommendations.
 metadata:
   short-description: Cited SEC small-cap diligence ledger
 ---
@@ -12,7 +12,7 @@ Build a reproducible diligence-risk ledger from US SEC filings. The outcome is a
 ## Start with identity and scope
 
 1. Resolve the issuer from legal name plus CIK, or an SEC accession/filing URL. A ticker alone is insufficient. Stop and request clarification if the issuer, CIK, class, filing, or period is ambiguous.
-2. State the reviewed filing set and cutoff/as-of date. Use English-language US SEC filings only.
+2. State the reviewed filing set and cutoff/as-of date. Use English-language US SEC filings only. For a historical cutoff, include only evidence with an SEC accepted timestamp on or before that cutoff. Do not silently use later amendments, restatements, or subsequent events; list them only as clearly labeled post-cutoff context when the requester asks for it.
 3. Retrieve the source document before forming material findings. If a needed filing or quoted passage cannot be verified, record it as unknown; do not fill the gap from memory or a secondary summary.
 
 Read [source hierarchy](references/source-hierarchy.md) before collecting evidence. Read [red-flag taxonomy](references/red-flag-taxonomy.md) when selecting review areas. Read [output contract](references/output-contract.md) before drafting the final ledger.

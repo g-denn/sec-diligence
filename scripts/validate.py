@@ -24,7 +24,9 @@ REQUIRED_OUTPUT_SECTIONS = (
     "## Open questions and coverage gaps", "## Sources reviewed", "**Citation:**",
 )
 UNSAFE_OUTPUT_LANGUAGE = re.compile(
-    r"\b(buy|sell|hold|avoid|long|short|recommend(?:ation|ed|ing)?)\b", re.IGNORECASE
+    r"\b(buy|sell|hold|avoid|long|short|recommend(?:ation|ed|ing)?|fraud(?:ulent)?|scam)\b"
+    r"|\b(?:composite|aggregate|overall)\s+(?:risk\s+)?(?:score|rating)\b",
+    re.IGNORECASE,
 )
 MARKDOWN_LINK = re.compile(r"\[[^]]+\]\(([^)]+)\)")
 
@@ -45,6 +47,8 @@ def check_frontmatter(errors: list[str]) -> None:
     description = re.search(r"^description:\s*(.+)$", frontmatter, re.MULTILINE)
     if not description or len(description.group(1).strip()) < 40:
         fail(errors, "SKILL.md needs a discriminating description")
+    if "SEC accepted timestamp on or before" not in content:
+        fail(errors, "SKILL.md must prevent post-cutoff evidence from entering historical reviews")
 
 
 def check_links(errors: list[str]) -> None:
@@ -79,9 +83,20 @@ def main() -> int:
     check_frontmatter(errors)
     check_links(errors)
     try:
-        json.loads((ROOT / ".claude-plugin/marketplace.json").read_text(encoding="utf-8"))
+        marketplace = json.loads((ROOT / ".claude-plugin/marketplace.json").read_text(encoding="utf-8"))
     except json.JSONDecodeError as exc:
         fail(errors, f"invalid marketplace JSON: {exc}")
+        marketplace = {}
+    plugins = marketplace.get("plugins", []) if isinstance(marketplace, dict) else []
+    expected_skill = "./skills/sec-red-flags"
+    if not any(
+        isinstance(plugin, dict)
+        and plugin.get("source") == "./"
+        and plugin.get("strict") is False
+        and expected_skill in plugin.get("skills", [])
+        for plugin in plugins
+    ):
+        fail(errors, "marketplace must explicitly map ./skills/sec-red-flags from the repository root")
     check_output(errors, "examples/sample-output.md", (ROOT / "examples/sample-output.md").read_text(encoding="utf-8"))
     try:
         cases = json.loads((ROOT / "tests/fixtures/cases.json").read_text(encoding="utf-8"))
@@ -103,7 +118,7 @@ def main() -> int:
         print("Validation failed:")
         print("\n".join(f"- {error}" for error in errors))
         return 1
-    print("Validation passed: skill contract, links, fixture structure, and safe output language.")
+    print("Validation passed: repository structure, static output contract, links, fixtures, and safety-language checks.")
     return 0
 
 

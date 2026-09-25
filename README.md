@@ -1,12 +1,20 @@
 # SEC Red Flags
 
+[![skills.sh](https://skills.sh/b/g-denn/sec-red-flags)](https://skills.sh/g-denn/sec-red-flags)
+
 `sec-red-flags` is an Agent Skill for turning US SEC filings into a compact, cited diligence-risk ledger. It is designed for small and micro-cap research where the real question is often not "what is the price?" but "what must be proven before this deserves more work?"
 
 It does not rank securities, estimate value, screen companies, use market-price data, or give investment or trading recommendations.
 
 ## Install
 
-Copy [`skills/sec-red-flags`](skills/sec-red-flags) into a compatible Agent Skills directory, then invoke `$sec-red-flags` with an unambiguous US issuer name plus CIK, or a filing URL/accession number.
+Install with the public Agent Skills CLI:
+
+```bash
+npx skills add g-denn/sec-red-flags --skill sec-red-flags
+```
+
+Or copy [`skills/sec-red-flags`](skills/sec-red-flags) into a compatible Agent Skills directory. Then invoke `$sec-red-flags` with an unambiguous US issuer name plus CIK, or a filing URL/accession number.
 
 ```text
 Use $sec-red-flags to review Example Microcap Inc. (CIK 0000123456).
@@ -43,5 +51,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for bounded contributions and [SECURITY.m
 ```powershell
 python scripts/validate.py
 python -m unittest discover -s tests -v
-python C:\Users\Dell\.codex\skills\.system\skill-creator\scripts\quick_validate.py skills/sec-red-flags
 ```

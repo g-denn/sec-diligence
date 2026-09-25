@@ -9,8 +9,12 @@
   "plugins": [
     {
       "name": "sec-red-flags",
-      "description": "Audit US SEC filings into a cited diligence-risk ledger without recommendations.",
-      "source": "./skills/sec-red-flags"
+      "description": "Review US SEC filings into a cited diligence-risk ledger without recommendations.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/sec-red-flags"
+      ]
     }
   ]
 }
